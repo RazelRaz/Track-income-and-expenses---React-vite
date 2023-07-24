@@ -4,7 +4,7 @@ const ExpensesList = ({ expenseData }) => {
     return (
         <div>
             <div className="show_income_area">
-                <h4>Income List</h4>
+                <h4>Expenses List</h4>
                 <ul>
                     {expenseData.map((income, index) => (
                     <li key={index}>
