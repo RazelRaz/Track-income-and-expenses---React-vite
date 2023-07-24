@@ -2,38 +2,46 @@ import { useState } from "react";
 import IncomeList from "./IncomeList";
 
 
+
+
 const IncomeForm = () => {
 
-    const [incomeData, setIncomeData] = useState([]);
-    const [formData, setFormData] = useState({
-        source: '',
-        amount:'',
-        date: '',
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
-    };
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIncomeData((prevIncomeData) => [...prevIncomeData, formData]);
-        setFormData({
+    let [formObj, setFormObj] = useState({
         source: '',
         amount: '',
         date: '',
+    })
+
+    // An array to store all income transactions
+    const [incomeData, setIncomeData] = useState([]);
+
+    const inputOnChange = (property, value) => {
+        setFormObj(prevObj => ({
+            ...prevObj,
+            [property]: value
+        }))
+    }
+
+    const formSubmit = (e) => {
+        e.preventDefault();
+        // console.log(formObj);
+        // Add the new income transaction to the incomeData array
+        setIncomeData((prevData) => [...prevData, formObj]);
+        // Clear the form fields after submitting
+        setFormObj({
+            source: "",
+            amount: "",
+            date: "",
         });
-    };
+    }
+
+
+
 
     return (
         <div className="incomeForm_area">
             <div className="container">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={formSubmit}>
 
                     <div>
                         <label htmlFor="source">Source:</label>
@@ -41,8 +49,8 @@ const IncomeForm = () => {
                         type="text"
                         id="source"
                         name="source"
-                        value={formData.source}
-                        onChange={handleChange}
+                        value={formObj.source}
+                        onChange={(e) => {inputOnChange('source', e.target.value)}}
                         required
                         />
                     </div>
@@ -53,8 +61,8 @@ const IncomeForm = () => {
                         type="number"
                         id="amount"
                         name="amount"
-                        value={formData.amount}
-                        onChange={handleChange}
+                        value={formObj.amount}
+                        onChange={(e) => {inputOnChange('amount', e.target.value)}}
                         required
                         />
                     </div>
@@ -65,8 +73,8 @@ const IncomeForm = () => {
                             type="date"
                             id="date"
                             name="date"
-                            value={formData.date}
-                            onChange={handleChange}
+                            value={formObj.date}
+                            onChange={(e) => {inputOnChange('date', e.target.value)}}
                             required
                         />
                     </div>
@@ -74,7 +82,8 @@ const IncomeForm = () => {
                     <button type="submit">Add Income</button>
                 </form>
 
-                <IncomeList incomeData={incomeData}></IncomeList>
+                {/* Pass the incomeData to the IncomeList component */}
+                <IncomeList incomeData={incomeData} />
             </div>
         </div>
     );

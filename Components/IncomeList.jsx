@@ -1,17 +1,19 @@
 
 
-const IncomeList = ({ incomeData  }) => {
+const IncomeList = ({ incomeData }) => {
     return (
         <div>
             <div className="show_income_area">
                 <h4>Income List</h4>
-                {
-                    incomeData.map((income, index) => {
-                        <li key={index}>
-                            Source: {income.source}, Amount: {income.amount}, Date: {income.date}
-                        </li>
-                    })
-                }
+                <ul>
+                    {incomeData.map((income, index) => (
+                    <li key={index}>
+                        <strong>Source: </strong> {income.source}, &nbsp;
+                        <strong>Amount: </strong> {income.amount}, &nbsp;
+                        <strong>Date: </strong> {income.date}
+                    </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );
