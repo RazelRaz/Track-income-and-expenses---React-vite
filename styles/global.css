@@ -50,3 +50,7 @@ button {
   font-weight: 400;
   font-size: 17px;
 }
+
+.menu_area ul li:hover a{
+  color: #33741a;
+}
