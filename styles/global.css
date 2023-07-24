@@ -1,18 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arsenal', sans-serif;
-  }
-  
-  body {
-    background: #191919;
-    color: #F2F2F2;
-    min-height: 100vh;
-  }
-  
-  button {
-    cursor: pointer;
-  }
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Arsenal', sans-serif;
+}
+
+body {
+  background: #191919;
+  color: #F2F2F2;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Theme CSS Starts */
+
+
+/* Menu ARea */
+
+.menu_area {
+  display: flex;
+  background: #fff;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  padding: 10px 20px;
+}
+
+.logo_area img {
+  width: 50px;
+}
+
+.menu_area ul li {
+  display: inline-block;
+  margin: 0 13px;
+}
+
+.menu_area ul li a{
+  color: #200606;
+  font-weight: 400;
+  font-size: 17px;
+}
