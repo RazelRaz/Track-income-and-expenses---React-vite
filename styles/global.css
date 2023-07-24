@@ -82,3 +82,10 @@ button {
   padding: 13px 10px;
   margin-top: 10px;
 }
+
+.show_income_area {
+  background: pink;
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+}

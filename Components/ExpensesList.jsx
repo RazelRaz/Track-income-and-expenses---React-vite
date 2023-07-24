@@ -1,14 +1,14 @@
 
 
-const IncomeList = ({ incomeData }) => {
+const ExpensesList = ({ expenseData }) => {
     return (
         <div>
             <div className="show_income_area">
                 <h4>Income List</h4>
                 <ul>
-                    {incomeData.map((income, index) => (
+                    {expenseData.map((income, index) => (
                     <li key={index}>
-                        <strong>Source: </strong> {income.source}, &nbsp;
+                        <strong>Expense Source: </strong> {income.source}, &nbsp;
                         <strong>Amount: $ </strong> {income.amount}, &nbsp;
                         <strong>Date: </strong> {income.date}
                     </li>
@@ -19,4 +19,4 @@ const IncomeList = ({ incomeData }) => {
     );
 };
 
-export default IncomeList;
+export default ExpensesList;
